@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.GlManYgMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.GlManYg">
+        <id column="com_id" property="comId" jdbcType="CHAR"/>
+        <id column="zgbh" property="zgbh" jdbcType="CHAR"/>
+        <id column="sfzh" property="sfzh" jdbcType="CHAR"/>
+        <result column="zgxm" property="zgxm" jdbcType="VARCHAR"/>
+        <result column="zgxm_en" property="zgxmEn" jdbcType="VARCHAR"/>
+        <result column="zgxm_old" property="zgxmOld" jdbcType="VARCHAR"/>
+        <result column="zgxm_old_en" property="zgxmOldEn" jdbcType="VARCHAR"/>
+        <result column="zgxb" property="zgxb" jdbcType="CHAR"/>
+        <result column="zgcs" property="zgcs" jdbcType="TIMESTAMP"/>
+        <result column="zgjg" property="zgjg" jdbcType="CHAR"/>
+        <result column="zgxl" property="zgxl" jdbcType="CHAR"/>
+        <result column="zgzy" property="zgzy" jdbcType="CHAR"/>
+        <result column="zghy" property="zghy" jdbcType="CHAR"/>
+        <result column="zgjk" property="zgjk" jdbcType="CHAR"/>
+        <result column="zzmm" property="zzmm" jdbcType="CHAR"/>
+        <result column="hkxz" property="hkxz" jdbcType="CHAR"/>
+        <result column="rdrj" property="rdrj" jdbcType="TIMESTAMP"/>
+        <result column="jszc" property="jszc" jdbcType="CHAR"/>
+        <result column="gzrj" property="gzrj" jdbcType="TIMESTAMP"/>
+        <result column="dah" property="dah" jdbcType="CHAR"/>
+        <result column="gzjb" property="gzjb" jdbcType="CHAR"/>
+        <result column="zzrj" property="zzrj" jdbcType="TIMESTAMP"/>
+        <result column="byrj" property="byrj" jdbcType="TIMESTAMP"/>
+        <result column="zgzt" property="zgzt" jdbcType="CHAR"/>
+        <result column="zgdj" property="zgdj" jdbcType="CHAR"/>
+        <result column="wyyz" property="wyyz" jdbcType="CHAR"/>
+        <result column="jsj" property="jsj" jdbcType="CHAR"/>
+        <result column="xx" property="xx" jdbcType="CHAR"/>
+        <result column="csdd" property="csdd" jdbcType="CHAR"/>
+        <result column="hjszd" property="hjszd" jdbcType="CHAR"/>
+        <result column="addr" property="addr" jdbcType="CHAR"/>
+        <result column="phone" property="phone" jdbcType="CHAR"/>
+        <result column="grzc" property="grzc" jdbcType="CHAR"/>
+        <result column="csjt" property="csjt" jdbcType="CHAR"/>
+        <result column="e_mail" property="eMail" jdbcType="CHAR"/>
+        <result column="bx" property="bx" jdbcType="CHAR"/>
+        <result column="mz" property="mz" jdbcType="CHAR"/>
+        <result column="rtrj" property="rtrj" jdbcType="TIMESTAMP"/>
+        <result column="rcrj" property="rcrj" jdbcType="TIMESTAMP"/>
+        <result column="wydj" property="wydj" jdbcType="CHAR"/>
+        <result column="byxx" property="byxx" jdbcType="CHAR"/>
+        <result column="xw" property="xw" jdbcType="CHAR"/>
+        <result column="is_opr" property="isOpr" jdbcType="CHAR"/>
+        <result column="pwd" property="pwd" jdbcType="CHAR"/>
+        <result column="loc_file_path" property="locFilePath" jdbcType="VARCHAR"/>
+        <result column="sys_flag" property="sysFlag" jdbcType="CHAR"/>
+        <result column="man_lb" property="manLb" jdbcType="CHAR"/>
+        <result column="gz_lb" property="gzLb" jdbcType="CHAR"/>
+        <result column="sub_com_id" property="subComId" jdbcType="CHAR"/>
+        <result column="htrj" property="htrj" jdbcType="TIMESTAMP"/>
+        <result column="XL" property="xl" jdbcType="CHAR"/>
+        <result column="zgbh_old" property="zgbhOld" jdbcType="CHAR"/>
+        <result column="lw_flag" property="lwFlag" jdbcType="CHAR"/>
+        <result column="lzrj" property="lzrj" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <resultMap id="ResultMapWithBLOBs" type="com.example.demo.entity.GlManYg" extends="BaseResultMap">
+        <result column="img" property="img" jdbcType="LONGVARBINARY"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        com_id, zgbh, sfzh, zgxm, zgxm_en, zgxm_old, zgxm_old_en, zgxb, zgcs, zgjg, zgxl,
+        zgzy, zghy, zgjk, zzmm, hkxz, rdrj, jszc, gzrj, dah, gzjb, zzrj, byrj, zgzt, zgdj,
+        wyyz, jsj, xx, csdd, hjszd, addr, phone, grzc, csjt, e_mail, bx, mz, rtrj, rcrj,
+        wydj, byxx, xw, is_opr, pwd, loc_file_path, sys_flag, man_lb, gz_lb, sub_com_id,
+        htrj, XL, zgbh_old, lw_flag, lzrj, bz, jzsc
+    </sql>
+    <sql id="Blob_Column_List">
+        img
+    </sql>
+
+    <select id="findByUserCode" resultType="com.example.demo.entity.GlManYg" parameterType="map">
+        SELECT
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        FROM SHDB_${comId}.dbo.gl_man_yg WHERE com_id = #{comId} AND zgbh = #{userCode}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="com.example.demo.entity.GlManYg">
+        delete from SHDB_${comId}.dbo.gl_man_yg
+        where com_id = #{comId,jdbcType=CHAR}
+        and zgbh = #{zgbh,jdbcType=CHAR}
+        and sfzh = #{sfzh,jdbcType=CHAR}
+    </delete>
+
+    <insert id="insert" parameterType="com.example.demo.entity.GlManYg">
+        insert into SHDB_${comId}.dbo.gl_man_yg (com_id, zgbh, sfzh, zgxm,
+        zgxm_en, zgxm_old, zgxm_old_en,
+        zgxb, zgcs, zgjg, zgxl,
+        zgzy, zghy, zgjk, zzmm,
+        hkxz, rdrj, jszc, gzrj,
+        dah, gzjb, zzrj, byrj,
+        zgzt, zgdj, wyyz, jsj,
+        xx, csdd, hjszd, addr,
+        phone, grzc, csjt, e_mail,
+        bx, mz, rtrj, rcrj,
+        wydj, byxx, xw, is_opr,
+        pwd, loc_file_path, sys_flag,
+        man_lb, gz_lb, sub_com_id, htrj,
+        XL, zgbh_old, lw_flag, lzrj,
+        bz, jzsc, img
+        )
+        values (#{comId,jdbcType=CHAR}, #{zgbh,jdbcType=CHAR}, #{sfzh,jdbcType=CHAR}, #{zgxm,jdbcType=VARCHAR},
+        #{zgxmEn,jdbcType=VARCHAR}, #{zgxmOld,jdbcType=VARCHAR}, #{zgxmOldEn,jdbcType=VARCHAR},
+        #{zgxb,jdbcType=CHAR}, #{zgcs,jdbcType=TIMESTAMP}, #{zgjg,jdbcType=CHAR}, #{zgxl,jdbcType=CHAR},
+        #{zgzy,jdbcType=CHAR}, #{zghy,jdbcType=CHAR}, #{zgjk,jdbcType=CHAR}, #{zzmm,jdbcType=CHAR},
+        #{hkxz,jdbcType=CHAR}, #{rdrj,jdbcType=TIMESTAMP}, #{jszc,jdbcType=CHAR}, #{gzrj,jdbcType=TIMESTAMP},
+        #{dah,jdbcType=CHAR}, #{gzjb,jdbcType=CHAR}, #{zzrj,jdbcType=TIMESTAMP}, #{byrj,jdbcType=TIMESTAMP},
+        #{zgzt,jdbcType=CHAR}, #{zgdj,jdbcType=CHAR}, #{wyyz,jdbcType=CHAR}, #{jsj,jdbcType=CHAR},
+        #{xx,jdbcType=CHAR}, #{csdd,jdbcType=CHAR}, #{hjszd,jdbcType=CHAR}, #{addr,jdbcType=CHAR},
+        #{phone,jdbcType=CHAR}, #{grzc,jdbcType=CHAR}, #{csjt,jdbcType=CHAR}, #{eMail,jdbcType=CHAR},
+        #{bx,jdbcType=CHAR}, #{mz,jdbcType=CHAR}, #{rtrj,jdbcType=TIMESTAMP}, #{rcrj,jdbcType=TIMESTAMP},
+        #{wydj,jdbcType=CHAR}, #{byxx,jdbcType=CHAR}, #{xw,jdbcType=CHAR}, #{isOpr,jdbcType=CHAR},
+        #{pwd,jdbcType=CHAR}, #{locFilePath,jdbcType=VARCHAR}, #{sysFlag,jdbcType=CHAR},
+        #{manLb,jdbcType=CHAR}, #{gzLb,jdbcType=CHAR}, #{subComId,jdbcType=CHAR}, #{htrj,jdbcType=TIMESTAMP},
+        #{xl,jdbcType=CHAR}, #{zgbhOld,jdbcType=CHAR}, #{lwFlag,jdbcType=CHAR}, #{lzrj,jdbcType=TIMESTAMP},
+        #{bz,jdbcType=VARCHAR}, #{jzsc,jdbcType=VARCHAR}, #{img,jdbcType=LONGVARBINARY}
+        )
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.GlManYg">
+        update SHDB_${comId}.dbo.gl_man_yg
+        set zgxm = #{zgxm,jdbcType=VARCHAR},
+        zgxm_en = #{zgxmEn,jdbcType=VARCHAR},
+        zgxm_old = #{zgxmOld,jdbcType=VARCHAR},
+        zgxm_old_en = #{zgxmOldEn,jdbcType=VARCHAR},
+        zgxb = #{zgxb,jdbcType=CHAR},
+        zgcs = #{zgcs,jdbcType=TIMESTAMP},
+        zgjg = #{zgjg,jdbcType=CHAR},
+        zgxl = #{zgxl,jdbcType=CHAR},
+        zgzy = #{zgzy,jdbcType=CHAR},
+        zghy = #{zghy,jdbcType=CHAR},
+        zgjk = #{zgjk,jdbcType=CHAR},
+        zzmm = #{zzmm,jdbcType=CHAR},
+        hkxz = #{hkxz,jdbcType=CHAR},
+        rdrj = #{rdrj,jdbcType=TIMESTAMP},
+        jszc = #{jszc,jdbcType=CHAR},
+        gzrj = #{gzrj,jdbcType=TIMESTAMP},
+        dah = #{dah,jdbcType=CHAR},
+        gzjb = #{gzjb,jdbcType=CHAR},
+        zzrj = #{zzrj,jdbcType=TIMESTAMP},
+        byrj = #{byrj,jdbcType=TIMESTAMP},
+        zgzt = #{zgzt,jdbcType=CHAR},
+        zgdj = #{zgdj,jdbcType=CHAR},
+        wyyz = #{wyyz,jdbcType=CHAR},
+        jsj = #{jsj,jdbcType=CHAR},
+        xx = #{xx,jdbcType=CHAR},
+        csdd = #{csdd,jdbcType=CHAR},
+        hjszd = #{hjszd,jdbcType=CHAR},
+        addr = #{addr,jdbcType=CHAR},
+        phone = #{phone,jdbcType=CHAR},
+        grzc = #{grzc,jdbcType=CHAR},
+        csjt = #{csjt,jdbcType=CHAR},
+        e_mail = #{eMail,jdbcType=CHAR},
+        bx = #{bx,jdbcType=CHAR},
+        mz = #{mz,jdbcType=CHAR},
+        rtrj = #{rtrj,jdbcType=TIMESTAMP},
+        rcrj = #{rcrj,jdbcType=TIMESTAMP},
+        wydj = #{wydj,jdbcType=CHAR},
+        byxx = #{byxx,jdbcType=CHAR},
+        xw = #{xw,jdbcType=CHAR},
+        is_opr = #{isOpr,jdbcType=CHAR},
+        pwd = #{pwd,jdbcType=CHAR},
+        loc_file_path = #{locFilePath,jdbcType=VARCHAR},
+        sys_flag = #{sysFlag,jdbcType=CHAR},
+        man_lb = #{manLb,jdbcType=CHAR},
+        gz_lb = #{gzLb,jdbcType=CHAR},
+        sub_com_id = #{subComId,jdbcType=CHAR},
+        htrj = #{htrj,jdbcType=TIMESTAMP},
+        XL = #{xl,jdbcType=CHAR},
+        zgbh_old = #{zgbhOld,jdbcType=CHAR},
+        lw_flag = #{lwFlag,jdbcType=CHAR},
+        lzrj = #{lzrj,jdbcType=TIMESTAMP},
+        bz = #{bz,jdbcType=VARCHAR},
+        jzsc = #{jzsc,jdbcType=VARCHAR}
+        where com_id = #{comId,jdbcType=CHAR}
+        and zgbh = #{zgbh,jdbcType=CHAR}
+        and sfzh = #{sfzh,jdbcType=CHAR}
+    </update>
+</mapper>
