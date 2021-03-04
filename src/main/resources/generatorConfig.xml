@@ -14,7 +14,7 @@
 
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-                        connectionURL="jdbc:sqlserver://172.16.100.168:1433;databasename=SHDB_SH01"
+                        connectionURL="jdbc:sqlserver://localhost:1433;databasename=SHDB_SH01"
                         userId="sa" password="1234560_sh"/>
 
         <!-- 生成模型的包名和位置-->
