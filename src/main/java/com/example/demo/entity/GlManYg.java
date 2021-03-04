@@ -9,175 +9,116 @@ import java.util.Date;
 /**
  * @author liusj
  */
-@Entity
-@Table(name = "gl_man_yg")
 public class GlManYg implements Serializable {
 
-    @Column(name = "com_id")
     private String comId;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "zgbh")
     private String zgbh;
 
-    @Column(name = "sfzh")
     private String sfzh;
 
-    @Column(name = "zgxm")
     private String zgxm;
 
-    @Column(name = "zgxm_en")
     private String zgxmEn;
 
-    @Column(name = "zgxm_old")
     private String zgxmOld;
 
-    @Column(name = "zgxm_old_en")
     private String zgxmOldEn;
 
-    @Column(name = "zgxb")
     private String zgxb;
 
-    @Column(name = "zgcs")
     private Date zgcs;
 
-    @Column(name = "zgjg")
     private String zgjg;
 
-    @Column(name = "zgxl")
     private String zgxl;
 
-    @Column(name = "zgzy")
     private String zgzy;
 
-    @Column(name = "zghy")
     private String zghy;
 
-    @Column(name = "zgjk")
     private String zgjk;
 
-    @Column(name = "zzmm")
     private String zzmm;
 
-    @Column(name = "hkxz")
     private String hkxz;
 
-    @Column(name = "rdrj")
     private Date rdrj;
 
-    @Column(name = "jzsc")
     private String jszc;
 
-    @Column(name = "gzrj")
     private Date gzrj;
 
-    @Column(name = "dah")
     private String dah;
 
-    @Column(name = "gzjb")
     private String gzjb;
 
-    @Column(name = "zzrj")
     private Date zzrj;
 
-    @Column(name = "byrj")
     private Date byrj;
 
-    @Column(name = "zgzt")
     private String zgzt;
 
-    @Column(name = "zgdj")
     private String zgdj;
 
-    @Column(name = "wyyz")
     private String wyyz;
 
-    @Column(name = "jsj")
     private String jsj;
 
-    @Column(name = "xx")
     private String xx;
 
-    @Column(name = "csdd")
     private String csdd;
 
-    @Column(name = "hjszd")
     private String hjszd;
 
-    @Column(name = "addr")
     private String addr;
 
-    @Column(name = "phone")
     private String phone;
 
-    @Column(name = "grzc")
     private String grzc;
 
-    @Column(name = "csjt")
     private String csjt;
 
-    @Column(name = "e_mail")
     private String eMail;
 
-    @Column(name = "bx")
     private String bx;
 
-    @Column(name = "mz")
     private String mz;
 
-    @Column(name = "rtrj")
     private Date rtrj;
 
-    @Column(name = "rcrj")
     private Date rcrj;
 
-    @Column(name = "wydj")
     private String wydj;
 
-    @Column(name = "byxx")
     private String byxx;
 
-    @Column(name = "xw")
     private String xw;
 
-    @Column(name = "is_opr")
     private String isOpr;
 
-    @Column(name = "pwd")
     private String pwd;
 
-    @Column(name = "loc_file_path")
     private String locFilePath;
 
-    @Column(name = "sys_flag")
     private String sysFlag;
 
-    @Column(name = "man_lb")
     private String manLb;
 
-    @Column(name = "gz_lb")
     private String gzLb;
 
-    @Column(name = "sub_com_id")
     private String subComId;
 
-    @Column(name = "htrj")
     private Date htrj;
 
-    @Column(name = "xl")
     private String xl;
 
-    @Column(name = "zgbh_old")
     private String zgbhOld;
 
-    @Column(name = "lw_flag")
     private String lwFlag;
 
-    @Column(name = "lzrj")
     private Date lzrj;
 
-    @Column(name = "img")
     private byte[] img;
 
     public String getComId() {

@@ -67,7 +67,7 @@
         zgzy, zghy, zgjk, zzmm, hkxz, rdrj, jszc, gzrj, dah, gzjb, zzrj, byrj, zgzt, zgdj,
         wyyz, jsj, xx, csdd, hjszd, addr, phone, grzc, csjt, e_mail, bx, mz, rtrj, rcrj,
         wydj, byxx, xw, is_opr, pwd, loc_file_path, sys_flag, man_lb, gz_lb, sub_com_id,
-        htrj, XL, zgbh_old, lw_flag, lzrj, bz, jzsc
+        htrj, XL, zgbh_old, lw_flag, lzrj
     </sql>
     <sql id="Blob_Column_List">
         img
@@ -102,8 +102,7 @@
         wydj, byxx, xw, is_opr,
         pwd, loc_file_path, sys_flag,
         man_lb, gz_lb, sub_com_id, htrj,
-        XL, zgbh_old, lw_flag, lzrj,
-        bz, jzsc, img
+        XL, zgbh_old, lw_flag, lzrj, img
         )
         values (#{comId,jdbcType=CHAR}, #{zgbh,jdbcType=CHAR}, #{sfzh,jdbcType=CHAR}, #{zgxm,jdbcType=VARCHAR},
         #{zgxmEn,jdbcType=VARCHAR}, #{zgxmOld,jdbcType=VARCHAR}, #{zgxmOldEn,jdbcType=VARCHAR},
@@ -119,7 +118,7 @@
         #{pwd,jdbcType=CHAR}, #{locFilePath,jdbcType=VARCHAR}, #{sysFlag,jdbcType=CHAR},
         #{manLb,jdbcType=CHAR}, #{gzLb,jdbcType=CHAR}, #{subComId,jdbcType=CHAR}, #{htrj,jdbcType=TIMESTAMP},
         #{xl,jdbcType=CHAR}, #{zgbhOld,jdbcType=CHAR}, #{lwFlag,jdbcType=CHAR}, #{lzrj,jdbcType=TIMESTAMP},
-        #{bz,jdbcType=VARCHAR}, #{jzsc,jdbcType=VARCHAR}, #{img,jdbcType=LONGVARBINARY}
+        #{img,jdbcType=LONGVARBINARY}
         )
     </insert>
 
@@ -176,8 +175,6 @@
         zgbh_old = #{zgbhOld,jdbcType=CHAR},
         lw_flag = #{lwFlag,jdbcType=CHAR},
         lzrj = #{lzrj,jdbcType=TIMESTAMP},
-        bz = #{bz,jdbcType=VARCHAR},
-        jzsc = #{jzsc,jdbcType=VARCHAR}
         where com_id = #{comId,jdbcType=CHAR}
         and zgbh = #{zgbh,jdbcType=CHAR}
         and sfzh = #{sfzh,jdbcType=CHAR}
