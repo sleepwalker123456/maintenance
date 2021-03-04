@@ -1,7 +1,8 @@
-package com.example.demo.mapper;
+package com.example.demo.mapper.master;
 
 import com.example.demo.entity.GlManYg;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.Map;
 
@@ -37,5 +38,6 @@ public interface GlManYgMapper {
      * @param params 条件
      * @return 用户信息
      */
+   // @Select(value = "SELECT * FROM SHDB_${comId}.dbo.gl_man_yg WHERE com_id = #{comId} AND zgbh = #{userCode}")
     GlManYg findByUserCode(Map<String,String> params);
 }

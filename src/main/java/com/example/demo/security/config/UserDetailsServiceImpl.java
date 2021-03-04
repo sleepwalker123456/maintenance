@@ -2,7 +2,7 @@ package com.example.demo.security.config;
 
 import com.example.demo.entity.GlManYg;
 import com.example.demo.entity.UserInfo;
-import com.example.demo.mapper.GlManYgMapper;
+import com.example.demo.mapper.master.GlManYgMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +43,7 @@ public class UserDetailsServiceImpl implements MyUserDetailsService {
             LOGGER.info("用户{}不存在！",userCode);
             throw new UsernameNotFoundException(userCode);
         }
+
         //配置用户权限
         List<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
         return new UserInfo(glManYg.getComId(), glManYg.getZgbh().trim(), glManYg.getPwd(), simpleGrantedAuthorities);

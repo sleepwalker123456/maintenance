@@ -1,11 +1,20 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databasename=SHDB_SH01
-    username: sa
-    password: 1234560_sh
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    master:
+      url: jdbc:sqlserver://172.16.100.86:1433;databasename=SHDB_SH01
+      username: reader
+      password: SANhua?2019
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+    cluster:
+      url: jdbc:sqlserver://172.16.100.168:1433;databasename=SHDB_SH01
+      username: sa
+      password: 1234560_sh
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
   thymeleaf:
     cache: false
+
   jpa:
     show-sql: true
     hibernate:
@@ -16,8 +25,9 @@ spring:
 server:
   port: 18080
 mybatis:
-  mapper-locations: classpath:mapper/*Mapper.xml
+  mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.example.entity
+
 logging:
   level:
     com.example.demo.mapper: debug
